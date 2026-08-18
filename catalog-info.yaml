@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: notificacoes-worker
+  description: Worker que envia notificacoes quando pedidos mudam de status
+  annotations:
+    github.com/project-slug: sua-org/notificacoes-worker
+  tags:
+    - worker
+    - async
+spec:
+  type: service
+  lifecycle: experimental
+  owner: user:default/gustavo
+  system: plataforma-ecommerce
+  consumesApis:
+    - pedidos-rest-api
+  dependsOn:
+    - component:default/pedidos-api
